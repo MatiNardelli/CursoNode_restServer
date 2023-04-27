@@ -4,7 +4,7 @@
   "description": "Recuerden que deben de ejecutar ```npm install``` para reconstruir los módulos de Node.",
   "main": "index.js",
   "scripts": {
-    "start": "node app"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
