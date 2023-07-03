@@ -21,7 +21,7 @@ const buscarUsuarios = async( termino = '', res = response ) => {
         });
     }
 
-    const regex = new RegExp( termino, 'i' );
+    const regex = new RegExp( termino, 'i' ); //i: insensible a mayus y minus
     const usuarios = await Usuario.find({
         $or: [{ nombre: regex }, { correo: regex }],
         $and: [{ estado: true }]

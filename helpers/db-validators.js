@@ -38,12 +38,24 @@ const existeCategoriaPorId = async( id ) => {
     }
 }
 
+//validar conexiones permitidas
+const coleccionesPermitidas = (coleccion = '', colecciones =[]) => {
+    //ahora hay que verificar que la variable exista en el arreglo -> coleccion este en colecciones
+    const incluida = colecciones.includes(coleccion);
+    if(!incluida){
+        throw new Error(`La coleccion ${coleccion} no es permitida, solo: ${colecciones}`);
+    }
+
+    return true; //se deberia colocar en todas pero bueno esta implicita
+
+}
 
 
 module.exports = {
     esRoleValido,
     emailExiste,
     existeUsuarioPorId,
-    existeCategoriaPorId
+    existeCategoriaPorId,
+    coleccionesPermitidas,
 }
 

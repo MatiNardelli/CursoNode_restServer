@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const { stringify } = require('uuid');
 
 const ProductoSchema = Schema({
     nombre: {
@@ -27,12 +28,12 @@ const ProductoSchema = Schema({
     },
     descripcion: {type: String}, //el objetivo es poder decir como es el producto (descripcion sabor etiqueta)
     disponible: {type: Boolean, default: true}, //disponible es exite pero no esta disponible
-
+    img: {type: String},
 });
 
 
 ProductoSchema.methods.toJSON = function() {
-    const { __v, estado, ...data  } = this.toObject();
+    const { precio, __v, estado, ...data  } = this.toObject();
     return data;
 }
 
